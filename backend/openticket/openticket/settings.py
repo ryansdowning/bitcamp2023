@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_filters",
     "corsheaders",
+    "accounts",
+    "venues",
+    "tickets",
 ]
 
 MIDDLEWARE = [
