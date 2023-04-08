@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "rocky"
+name = "openticket"
 version = "0.1.0"
 description = "Backend for Alan Finances"
 authors = ["Ryan Downing <ryansdowning1@gmail.com>"]

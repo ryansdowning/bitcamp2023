@@ -1,11 +1,11 @@
 """
-Views for the rocky app.
+Views for the openticket app.
 """
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
-from rocky.serializers import RegisterSerializer, UserSerializer
-from rocky.utils import CreateOnlyIsAuthenticatedView, IsAuthenticatedView
+from openticket.serializers import RegisterSerializer, UserSerializer
+from openticket.utils import CreateOnlyIsAuthenticatedView, IsAuthenticatedView
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
