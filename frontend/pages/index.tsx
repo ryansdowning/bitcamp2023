@@ -1,11 +1,10 @@
-import { BryceAppShell } from "../components/BryceAppShell/BryceAppShell";
-import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
+import { OpenTicketAppShell } from "../components/OpenTicketAppShell/OpenTicketAppShell";
 import { Welcome } from "../components/Welcome/Welcome";
 
 export default function HomePage() {
   return (
-    <BryceAppShell>
+    <OpenTicketAppShell>
       <Welcome />
-    </BryceAppShell>
+    </OpenTicketAppShell>
   );
 }

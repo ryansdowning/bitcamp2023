@@ -1,6 +1,6 @@
-import { BryceSidebar } from "../../components/BryceAppShell/BryceSidebar";
 import { changePassword } from "../../utilities/authentication";
 import { Breakpoint, useBreakpoint } from "../../utilities/hooks";
+import { OpenTicketSidebar } from "./OpenTicketSidebar";
 import { AppShellProps, Button, Modal, Text, TextInput, Group, Overlay } from "@mantine/core";
 import { AppShell } from "@mantine/core";
 import { useForm } from "@mantine/form";
@@ -8,7 +8,7 @@ import { ModalsProvider } from "@mantine/modals";
 import Head from "next/head";
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
-export interface BryceAppShellProps extends AppShellProps {
+export interface OpenTicketAppShellProps extends AppShellProps {
   pt?: number;
   pl?: number;
   pr?: number;
@@ -21,7 +21,7 @@ export const OverlayContext = createContext<[boolean, Dispatch<SetStateAction<bo
   (_) => true,
 ]);
 
-export function BryceAppShell({ children, pt, pl, pr, pb, title, ...others }: BryceAppShellProps) {
+export function OpenTicketAppShell({ children, pt, pl, pr, pb, title, ...others }: OpenTicketAppShellProps) {
   const [isResetOpen, setIsResetOpen] = useState(false);
   const [overlay, setOverlay] = useState(false);
   const breakpoint = useBreakpoint();
@@ -58,7 +58,7 @@ export function BryceAppShell({ children, pt, pl, pr, pb, title, ...others }: Br
     <OverlayContext.Provider value={[overlay, setOverlay]}>
       <ModalsProvider>
         <AppShell
-          navbar={<BryceSidebar />}
+          navbar={<OpenTicketSidebar />}
           styles={(theme) => ({
             main: {
               backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
@@ -72,7 +72,7 @@ export function BryceAppShell({ children, pt, pl, pr, pb, title, ...others }: Br
           {...others}
         >
           <Head>
-            <title>{title ? title : "Bryce Dashboard"}</title>
+            <title>{title ? title : "OpenTicket Dashboard"}</title>
           </Head>
           {overlay && <Overlay opacity={0.6} color="#000" zIndex={5} sx={{ position: "fixed" }} />}
           <Modal

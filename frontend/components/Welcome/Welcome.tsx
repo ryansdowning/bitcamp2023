@@ -9,7 +9,7 @@ export function Welcome() {
       <Title className={classes.title} align="center" mt={100}>
         Welcome to{" "}
         <Text inherit variant="gradient" component="span">
-          Bitcamp 2023
+          OpenTicket
         </Text>
       </Title>
     </Stack>

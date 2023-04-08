@@ -1,6 +1,6 @@
-import { OverlayContext } from "../../components/BryceAppShell/BryceAppShell";
-import { ColorSchemeToggle } from "../../components/ColorSchemeToggle/ColorSchemeToggle";
 import { useDark, useUser } from "../../utilities/hooks";
+import { ColorSchemeToggle } from "../ColorSchemeToggle/ColorSchemeToggle";
+import { OverlayContext } from "./OpenTicketAppShell";
 import {
   Navbar,
   Stack,
@@ -49,13 +49,13 @@ export interface SidebarItemLink extends AbstractSideBarItem {
   link: string;
 }
 
-export interface BryceSidebarMenuItemProps extends AbstractSideBarItem {
+export interface OpenTicketSidebarMenuItemProps extends AbstractSideBarItem {
   icon: ReactNode;
   link?: string;
   sublinks?: SidebarItemLink[];
 }
 
-export function BryceSidebarMenuItem({
+export function OpenTicketSidebarMenuItem({
   title,
   icon,
   sublinks,
@@ -64,7 +64,7 @@ export function BryceSidebarMenuItem({
   beta,
   onClick,
   underConstruction,
-}: BryceSidebarMenuItemProps) {
+}: OpenTicketSidebarMenuItemProps) {
   const [opened, setOpened] = useState(false);
   const router = useRouter();
   const sidebarOpened = useContext(isSidebarOpenedContext);
@@ -172,7 +172,7 @@ export function BryceSidebarMenuItem({
 
 const isSidebarOpenedContext = createContext<boolean>(false);
 
-export function BryceSidebar() {
+export function OpenTicketSidebar() {
   const { hovered, ref } = useHover();
   const [, setOverlay] = useContext(OverlayContext);
   const dark = useDark();
@@ -219,7 +219,7 @@ export function BryceSidebar() {
           </Group>
 
           {DIVIDER}
-          <BryceSidebarMenuItem title="Dashboard" icon={<IconDashboard stroke={1} />} link={`/`} />
+          <OpenTicketSidebarMenuItem title="Dashboard" icon={<IconDashboard stroke={1} />} link={`/`} />
         </Stack>
       </Navbar>
     </isSidebarOpenedContext.Provider>
