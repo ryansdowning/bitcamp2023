@@ -1,6 +1,8 @@
 # OpenTicket
 
-Let's build an open source, low commission (Roundtrip commission `< Max(0.25, 0.025 * TICKET_PRICE)`) event ticket distribution and marketplace.
+Let's build an open source, low commission\* event ticket distribution and marketplace.
+
+\* - OpenTicket will always have roundtrip commission `< Max(0.25, 0.025 * TICKET_PRICE)` where roundtrip is fees accumulated by both the buyer and seller of a ticket. This means if the ticket sells for $10 or less, the roundtrip fee will be at most $0.25, and any ticket sales above $10 will have a roundtrip fee of 2.5% of the ticket sale price. **This is a long term promise, OpenTicket will have 0 commission until the maintenance and upkeep costs are not sustainable.**
 
 ## Ticket Distribution
 

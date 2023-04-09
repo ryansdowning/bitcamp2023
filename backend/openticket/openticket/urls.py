@@ -33,4 +33,6 @@ urlpatterns = [
     path("v1/auth/token/", csrf_exempt(TokenEndpoint.as_view())),
     path("v1/auth/signup/", SignupEndpoint.as_view()),
     path("v1/auth/change-password/", ChangePasswordEndpoint.as_view()),
+    path("v1/accounts/", include("accounts.urls")),
+    path("v1/accounts/", include("venues.urls")),
 ]

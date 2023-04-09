@@ -1,0 +1,1213 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /v1/auth/user/:
+    get:
+      operationId: listUsers
+      description: View for getting user details using token authentication.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - v1
+    post:
+      operationId: createUser
+      description: View for getting user details using token authentication.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - v1
+  /v1/auth/user/{id}/:
+    get:
+      operationId: retrieveUser
+      description: View for getting user details using token authentication.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - v1
+    put:
+      operationId: updateUser
+      description: View for getting user details using token authentication.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - v1
+    patch:
+      operationId: partialUpdateUser
+      description: View for getting user details using token authentication.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - v1
+    delete:
+      operationId: destroyUser
+      description: View for getting user details using token authentication.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/organization/:
+    get:
+      operationId: listOrganizations
+      description: ''
+      parameters:
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/organization/{id}/:
+    get:
+      operationId: retrieveOrganization
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this organization.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/member/:
+    get:
+      operationId: listMembers
+      description: ''
+      parameters:
+      - name: user
+        required: false
+        in: query
+        description: user
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Member'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/member/{id}/:
+    get:
+      operationId: retrieveMember
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this member.
+        schema:
+          type: string
+      - name: user
+        required: false
+        in: query
+        description: user
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Member'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/venue/:
+    get:
+      operationId: listVenues
+      description: ''
+      parameters:
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: location
+        required: false
+        in: query
+        description: location
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - v1
+    post:
+      operationId: createVenue
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/venue/{id}/:
+    get:
+      operationId: retrieveVenue
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this venue.
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: location
+        required: false
+        in: query
+        description: location
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - v1
+    put:
+      operationId: updateVenue
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this venue.
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: location
+        required: false
+        in: query
+        description: location
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - v1
+    patch:
+      operationId: partialUpdateVenue
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this venue.
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: location
+        required: false
+        in: query
+        description: location
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - v1
+    delete:
+      operationId: destroyVenue
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this venue.
+        schema:
+          type: string
+      - name: organization
+        required: false
+        in: query
+        description: organization
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: location
+        required: false
+        in: query
+        description: location
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/event/:
+    get:
+      operationId: listEvents
+      description: ''
+      parameters:
+      - name: venue
+        required: false
+        in: query
+        description: venue
+        schema:
+          type: string
+      - name: venue__organization
+        required: false
+        in: query
+        description: venue__organization
+        schema:
+          type: string
+      - name: datetime
+        required: false
+        in: query
+        description: datetime
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - v1
+    post:
+      operationId: createEvent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/event/{id}/:
+    get:
+      operationId: retrieveEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      - name: venue
+        required: false
+        in: query
+        description: venue
+        schema:
+          type: string
+      - name: venue__organization
+        required: false
+        in: query
+        description: venue__organization
+        schema:
+          type: string
+      - name: datetime
+        required: false
+        in: query
+        description: datetime
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - v1
+    put:
+      operationId: updateEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      - name: venue
+        required: false
+        in: query
+        description: venue
+        schema:
+          type: string
+      - name: venue__organization
+        required: false
+        in: query
+        description: venue__organization
+        schema:
+          type: string
+      - name: datetime
+        required: false
+        in: query
+        description: datetime
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - v1
+    patch:
+      operationId: partialUpdateEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      - name: venue
+        required: false
+        in: query
+        description: venue
+        schema:
+          type: string
+      - name: venue__organization
+        required: false
+        in: query
+        description: venue__organization
+        schema:
+          type: string
+      - name: datetime
+        required: false
+        in: query
+        description: datetime
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - v1
+    delete:
+      operationId: destroyEvent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      - name: venue
+        required: false
+        in: query
+        description: venue
+        schema:
+          type: string
+      - name: venue__organization
+        required: false
+        in: query
+        description: venue__organization
+        schema:
+          type: string
+      - name: datetime
+        required: false
+        in: query
+        description: datetime
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/seat/:
+    get:
+      operationId: listSeats
+      description: ''
+      parameters:
+      - name: identifier
+        required: false
+        in: query
+        description: identifier
+        schema:
+          type: string
+      - name: event
+        required: false
+        in: query
+        description: event
+        schema:
+          type: string
+      - name: event__venue
+        required: false
+        in: query
+        description: event__venue
+        schema:
+          type: string
+      - name: event__venue__organization
+        required: false
+        in: query
+        description: event__venue__organization
+        schema:
+          type: string
+      - name: event__datetime
+        required: false
+        in: query
+        description: event__datetime
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Seat'
+          description: ''
+      tags:
+      - v1
+    post:
+      operationId: createSeat
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Seat'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Seat'
+          description: ''
+      tags:
+      - v1
+  /v1/accounts/seat/{id}/:
+    get:
+      operationId: retrieveSeat
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this seat.
+        schema:
+          type: string
+      - name: identifier
+        required: false
+        in: query
+        description: identifier
+        schema:
+          type: string
+      - name: event
+        required: false
+        in: query
+        description: event
+        schema:
+          type: string
+      - name: event__venue
+        required: false
+        in: query
+        description: event__venue
+        schema:
+          type: string
+      - name: event__venue__organization
+        required: false
+        in: query
+        description: event__venue__organization
+        schema:
+          type: string
+      - name: event__datetime
+        required: false
+        in: query
+        description: event__datetime
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Seat'
+          description: ''
+      tags:
+      - v1
+    put:
+      operationId: updateSeat
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this seat.
+        schema:
+          type: string
+      - name: identifier
+        required: false
+        in: query
+        description: identifier
+        schema:
+          type: string
+      - name: event
+        required: false
+        in: query
+        description: event
+        schema:
+          type: string
+      - name: event__venue
+        required: false
+        in: query
+        description: event__venue
+        schema:
+          type: string
+      - name: event__venue__organization
+        required: false
+        in: query
+        description: event__venue__organization
+        schema:
+          type: string
+      - name: event__datetime
+        required: false
+        in: query
+        description: event__datetime
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Seat'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Seat'
+          description: ''
+      tags:
+      - v1
+    patch:
+      operationId: partialUpdateSeat
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this seat.
+        schema:
+          type: string
+      - name: identifier
+        required: false
+        in: query
+        description: identifier
+        schema:
+          type: string
+      - name: event
+        required: false
+        in: query
+        description: event
+        schema:
+          type: string
+      - name: event__venue
+        required: false
+        in: query
+        description: event__venue
+        schema:
+          type: string
+      - name: event__venue__organization
+        required: false
+        in: query
+        description: event__venue__organization
+        schema:
+          type: string
+      - name: event__datetime
+        required: false
+        in: query
+        description: event__datetime
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Seat'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Seat'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Seat'
+          description: ''
+      tags:
+      - v1
+    delete:
+      operationId: destroySeat
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this seat.
+        schema:
+          type: string
+      - name: identifier
+        required: false
+        in: query
+        description: identifier
+        schema:
+          type: string
+      - name: event
+        required: false
+        in: query
+        description: event
+        schema:
+          type: string
+      - name: event__venue
+        required: false
+        in: query
+        description: event__venue
+        schema:
+          type: string
+      - name: event__venue__organization
+        required: false
+        in: query
+        description: event__venue__organization
+        schema:
+          type: string
+      - name: event__datetime
+        required: false
+        in: query
+        description: event__datetime
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v1
+  /v1/auth/token/:
+    post:
+      operationId: createTokenEndpoint
+      description: Gets the token using a user's email and password.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - v1
+  /v1/auth/signup/:
+    post:
+      operationId: createRegister
+      description: View for getting registered user details.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Register'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Register'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Register'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+          description: ''
+      tags:
+      - v1
+  /v1/auth/change-password/:
+    patch:
+      operationId: partialUpdateChangePasswordEndpoint
+      description: PATCH view for updating a user's password.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - v1
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+      required:
+      - username
+    Organization:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+        token:
+          type: string
+          format: uuid
+      required:
+      - name
+    Member:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+        organization:
+          type: integer
+      required:
+      - user
+      - organization
+    Venue:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+        location:
+          type: string
+        organization:
+          type: integer
+      required:
+      - name
+      - location
+      - organization
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        datetime:
+          type: string
+          format: date-time
+        description:
+          type: string
+        venue:
+          type: integer
+      required:
+      - datetime
+      - venue
+    Seat:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        identifier:
+          type: string
+        event:
+          type: integer
+      required:
+      - identifier
+      - event
+    Register:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+        password2:
+          type: string
+          writeOnly: true
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        token:
+          type: string
+          readOnly: true
+      required:
+      - username
+      - password
+      - password2
+      - email
+      - first_name
+      - last_name

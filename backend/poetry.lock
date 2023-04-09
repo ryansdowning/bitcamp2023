@@ -733,6 +733,14 @@ optional = false
 python-versions = ">=2"
 
 [[package]]
+name = "uritemplate"
+version = "4.1.1"
+description = "Implementation of RFC 6570 URI Templates"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "virtualenv"
 version = "20.21.0"
 description = "Virtual Python Environment builder"
@@ -796,7 +804,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "3fc54619b46e2064ede3a5efcf2f219d692a4a25b7d21aa3ab9d754c4f50ff87"
+content-hash = "5133a8fb0257eaffdf3128644b3a61075ad891d5832a8cf69db61b02862b0c9e"
 
 [metadata.files]
 appnope = [
@@ -944,6 +952,7 @@ tomli = [
 tornado = []
 traitlets = []
 tzdata = []
+uritemplate = []
 virtualenv = []
 wcwidth = []
 win32-setctime = [

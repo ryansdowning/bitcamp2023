@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from openticket.serializers import RegisterSerializer, UserSerializer
-from openticket.utils import CreateOnlyIsAuthenticatedView, IsAuthenticatedView
+from openticket.utils import IsAuthenticatedMixin, IsAuthenticatedView
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView
@@ -80,7 +80,7 @@ class TokenEndpoint(APIView):
         return Response({"token": str(token)}, status=status.HTTP_200_OK)
 
 
-class ChangePasswordEndpoint(CreateOnlyIsAuthenticatedView):
+class ChangePasswordEndpoint(IsAuthenticatedMixin, APIView):
     """
     Endpoint for changing a user's password.
     """
